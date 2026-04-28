@@ -1,0 +1,9 @@
+minimum_symptoms = [ ]
+maximum_symptoms = [ ]
+for i in range(0,41):
+  if(symptoms_list[i] > 7):
+    maximum_symptoms.append(naam_list[i])
+  elif(symptoms_list[i] < 7 or symptoms_list[i] == 7):
+    minimum_symptoms.append(naam_list[i])
+print(minimum_symptoms)
+print(maximum_symptoms)
