@@ -1,0 +1,12 @@
+for disease_name, disease_dataframe in data_set.groupby('Disease'):
+  #disease_dataframe got all 41 diseases
+  disease_dataframe = disease_dataframe.fillna('None')
+  oned_np_arr = disease_dataframe.to_numpy().flatten()
+  series_disease = pd.Series(oned_np_arr)
+  unique_symptoms = series_disease.unique()
+  #1D np arr -> List
+  list_disease = list(unique_symptoms)
+  list_disease.remove('None')
+  list_disease.pop(0)
+  print(f"{disease_name} = {list_disease}\n")
+
