@@ -1,0 +1,14 @@
+#Design a function to return the count of the symptoms
+def work_please(b):
+  b = b.iloc[:,1:18]
+  one_d_disease = b.to_numpy().flatten()
+  series_disease = pd.Series(one_d_disease)
+  unique_symptoms = series_disease.unique()
+  ls = list(unique_symptoms)
+  ls.remove('None')
+  finally_count = len(ls)
+  return finally_count
+
+rog_ko_naam = data_frame['Disease'].unique()
+no_of_symptoms = work_please(data_frame)
+print(f"The {rog_ko_naam} has {no_of_symptoms} symptoms.")
