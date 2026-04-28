@@ -1,0 +1,16 @@
+
+for name_two, data_frame_two in data_set.groupby('Disease'):
+  def work_please(b):
+    b = b.iloc[:,1:18]
+    b = b.fillna('None')
+    one_d_disease = b.to_numpy().flatten()
+    series_disease = pd.Series(one_d_disease)
+    unique_symptoms = series_disease.unique()
+    ls = list(unique_symptoms)
+    ls.remove('None')
+    finally_count = len(ls)
+    return finally_count
+
+  rog_ko_naam = data_frame_two['Disease'].unique()
+  no_of_symptoms = work_please(data_frame_two)
+  print(f"The {rog_ko_naam[0]} has {no_of_symptoms} symptoms.")
