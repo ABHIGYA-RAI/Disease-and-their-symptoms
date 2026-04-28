@@ -1,0 +1,8 @@
+for name,dataframe in data_set.groupby('Disease'):
+  dataframe = dataframe.iloc[:,1:18]
+  dataframe = dataframe.fillna('None')
+  arr = dataframe.to_numpy().flatten()
+  series = pd.Series(arr)
+  count = Counter(series)
+  print(count)
+  
