@@ -1,0 +1,9 @@
+#Count the number of each symptoms of all 41 diseases
+for name_disease, dataframe_disease in data_set.groupby('Disease'):
+  dataframe_disease = dataframe_disease.iloc[:,1:18]
+  dataframe_disease = dataframe_disease.fillna('None')
+  oned_np_arr = dataframe_disease.to_numpy().flatten()
+  series_symptoms = pd.Series(oned_np_arr)
+  count_symptoms = series_symptoms.value_counts()
+  print(f"{name_disease} : \n{count_symptoms.to_string()}\n")
+
