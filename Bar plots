@@ -1,0 +1,23 @@
+from collections import Counter
+import matplotlib.pyplot as plt
+count_list = [ ]
+label_list = [ ]
+for name,dataframe in data_set.groupby('Disease'):
+  dataframe = dataframe.iloc[:,1:18]
+  dataframe = dataframe.fillna('None')
+  arr = dataframe.to_numpy().flatten()
+  series = pd.Series(arr)
+  dictionary = Counter(series)
+  #The label and count should be extracted from the dictionary
+  #And be appended in the list above
+  label_list = list(dictionary.keys())
+  count_list = list(dictionary.values())
+  plt.xlabel(f"Symptoms of {name}")
+  plt.ylabel('Count of symptoms')
+  length = len(label_list)
+  position = range(length)
+  height = count_list
+  width = 0.2
+  plt.bar(position,height,width,color='salmon')
+  plt.xticks(position,labels=label_list,rotation=90)
+  plt.show()
