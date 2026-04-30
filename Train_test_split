@@ -1,0 +1,7 @@
+#Set and define the input and output for the machine
+output_disease = data_set['Disease']
+input_symptoms = data_set.drop('Disease',axis=1)
+
+#Input and output should be splitted into training data and testing data
+from sklearn.model_selection import train_test_split
+symptom_train,symptom_test,disease_train,disease_test= train_test_split(input_symptoms,output_disease,test_size=0.2)
