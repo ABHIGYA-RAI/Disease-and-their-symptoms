@@ -1,0 +1,5 @@
+# Model building
+ #But first of all,make these things clear.
+ #Is this algorithm classification or regression or other?
+ #Only after knowing the type of algorithm will I know which machines to use.
+''' My algorithm is the multi-class classification algorithm'''
