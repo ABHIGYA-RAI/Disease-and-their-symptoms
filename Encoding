@@ -1,0 +1,27 @@
+#Encoding
+from sklearn.preprocessing import LabelEncoder
+symptoms_encoder = LabelEncoder()
+disease_encoder = LabelEncoder()
+
+#Step 1: Splitting the symptoms columns and disease column
+symptoms_columns = data_set.drop('Disease',axis=1)
+disease_column = data_set.Disease
+
+#Step 2: Encoding the diseases
+encoded_disease = disease_encoder.fit_transform(disease_column)
+
+#Step 3: 2D symptoms dataframe -> 2D numpy array
+twod_symp_arr = symptoms_columns.values
+
+#Step 4: 2D numpy array -> 1D numpy array
+oned_symptoms = twod_symp_arr.flatten()
+
+#Step 5 : Mapping unique symptoms into unique numbers
+symptoms_encoder.fit(oned_symptoms)
+
+#Step 6: Encoding each and every symptoms
+encoded_symptoms = symptoms_columns.apply(symptoms_encoder.transform)
+
+#Step 7: Joining the encoded disease and symptoms columns
+encoded_dataset = encoded_symptoms
+encoded_dataset.insert(0,'Disease',encoded_disease)
