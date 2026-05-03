@@ -1,0 +1,3 @@
+#Setting the input and output
+input_symptoms = encoded_dataset.drop('Disease',axis=1)
+output_disease = encoded_dataset.Disease
