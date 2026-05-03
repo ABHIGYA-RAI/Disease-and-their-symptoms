@@ -1,0 +1,13 @@
+#Model building
+symptoms_disease_models = {
+    "Random Forest" : RandomForestClassifier(),
+    "Logistic Regression" : LogisticRegression(),
+    "K-Nearest Neighbor" : KNeighborsClassifier(),
+    "Support Vector Machine" : SVC(),
+    "Extreme Gradient Boosting" : XGBClassifier(),
+    "Cat Boosting" : CatBoostClassifier(),
+    "Light GBM" : LGBMClassifier(),
+    "Multinomial Naive Bayes" : MultinomialNB(),
+    "Gaussian Naive Bayes" : GaussianNB(),
+    "Bernoulli Naive Bayes" : BernoulliNB()
+}
