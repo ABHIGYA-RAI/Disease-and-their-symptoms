@@ -1,0 +1,5 @@
+#Prediction of all 10 models altogether in encoded form
+for name_of_model,model in symptoms_disease_models.items():
+  prediction = model.predict(symptoms_test)
+  print(prediction)
+  
