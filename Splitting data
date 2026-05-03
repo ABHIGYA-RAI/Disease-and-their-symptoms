@@ -1,0 +1,3 @@
+#Splitting into training data and testin\g data
+from sklearn.model_selection import train_test_split
+symptoms_train,symptoms_test,disease_train,disease_test = train_test_split(input_symptoms,output_disease,test_size=0.2)
