@@ -1,0 +1,3 @@
+#Training all 10 models altogether at once
+for name_of_model,model in symptoms_disease_models.items():
+  model.fit(symptoms_train,disease_train)
