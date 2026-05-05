@@ -1,0 +1,38 @@
+#Accuracy score
+#Precision score
+list_accuracy = [ ]
+list_precision = [ ]
+list_recall = [ ]
+list_fone = [ ]
+list_name = [ ]
+import warnings
+warnings.filterwarnings("ignore")
+from sklearn.metrics import precision_score
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import recall_score
+from sklearn.metrics import f1_score
+for name_of_models,model in symptoms_disease_models.items():
+  predicted_disease = model.predict(symptom_test)
+  predicted_disease = disease_encoder.inverse_transform(predicted_disease)
+  actual_disease = disease_encoder.inverse_transform(disease_test)
+
+  #Evaluating the predicted diseases
+  accuracy_of_disease = accuracy_score(actual_disease,predicted_disease)
+  precision_of_disease = precision_score(actual_disease,predicted_disease,average='macro')
+  recall_of_disease = recall_score(actual_disease,predicted_disease,average='macro')
+  fone_of_disease = f1_score(actual_disease,predicted_disease,average='macro')
+  list_accuracy.append(accuracy_of_disease)
+  list_precision.append(precision_of_disease)
+  list_recall.append(recall_of_disease)
+  list_fone.append(fone_of_disease)
+  list_name.append(name_of_models)
+metrics_dictionary = {
+      "Model" : list_name,
+      "Accuracy score" : list_accuracy,
+      "Precision score" : list_precision,
+      "Recall score" : list_recall,
+      "F1 score" : list_fone
+  }
+
+df = pd.DataFrame(metrics_dictionary)
+print(df)
