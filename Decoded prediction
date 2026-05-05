@@ -1,0 +1,5 @@
+#Prediction
+for name_of_model,model in symptoms_disease_models.items():
+  prediction = model.predict(symptom_test)
+  prediction = disease_encoder.inverse_transform(prediction)
+  print(prediction)
